@@ -13,10 +13,10 @@
 
     /*main (left right) axis
     justify-content: stretch;*/
-    justify-content: flex-start;
-    /*/*justify-content: flex-end;*/
-    /*justify-content: center;*/
-    /*justify-content: stretch;*/
+    /*justify-content: flex-start;
+    /*justify-content: flex-end;*/
+   justify-content: center;
+     /*/*justify-content: stretch;*/*/
     /*justify-content: space-between;*/
     /*justify-content: space-evenly;
     /*justify-content: space-end;*/
@@ -73,7 +73,7 @@
 }
 .item-5 {
     /*flex-grow: 1;*/
-    width: 40%;
+    width: 100%;
     min-height: 50px;
     font-family: 'Nunito', sans-serif;
     font-size: 28px;
@@ -104,16 +104,21 @@
       }
       p1{
         color: #0f4403;
+        text-align: center;
+      }
+      ol{
+      
+        text-align: center;
       }
       li{
-        color: rgb(3,167,137);
+        color: rgb(1,65,59);
         text-align: center;
       }
       ul{
         text-align: center;
       }
       .topnav {
-        background-color: rgb(1,65,59);
+        background-color:  rgb(1,65,59);
         overflow: hidden;
         text-align: left;
       }
@@ -140,4 +145,9 @@ color:rgb(1,65,59);
     left: 50%;
     top: 50%;
     transform: translate(-50%, 0%);
+}
+p3 {
+
+  text-align: center;
+  color: rgb(1,65,59);
 }

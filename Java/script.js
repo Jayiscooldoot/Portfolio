@@ -77,7 +77,7 @@ function startScreen(){
 
        fill(140,167,47)
      textSize(50);
-       text("Clck to start!", width/3+10, height/2-20)
+       text("Clck to start!", width/3+10, height/2-50)
        if(mouseIsPressed){
          orderIsStart=false;
          createNew=true;
@@ -212,7 +212,7 @@ function gameOver(){
   rect(boxesToReplace*(width/boxesC1.length),0,(width/boxesC1.length),height)
   fill(140,167,47)
   textSize(100)
-  text('Game Over', width/4-20, height/2)
+  text('Game Over', width/4-20, height/2-20)
   textSize(50);
   text("Stage: "+stage+" Level: "+level, width/4-20, height/2-100)
   if(gTWC+500<millis())
