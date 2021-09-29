@@ -27,7 +27,7 @@
     /*align-items:stretch;*/
     /*align-items:space-between;
     /*align-items:space-around;*/
-    align-items:end;
+    align-items:start;
     /*align-items:space-evenly;*/
   }
 
@@ -133,3 +133,11 @@ background-color:rgb(3,167,137);
 color:rgb(1,65,59);
 
       }
+      canvas {
+        border: thick solid #0f4403;
+    background-color: #0f4403;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+}
