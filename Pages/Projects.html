@@ -14,6 +14,131 @@
     <div id="header" onmouseover="hideDrpDwn(); resetCols()">
     
     </div>
+<<<<<<< HEAD
+    
+    <table style="width:100%; font-size:2.0vw; table-layout: fixed; ">
+      <th style="width:50%"></th>
+      <tr>
+        <td><h1 style="text-align: right;" class="C2T"><strong>Projects</strong></h1></td>
+        <td>
+          <table style="table-layout: fixed;">
+    <th style="width: 100%;"></th>
+            
+      <tr>
+        <td>
+          <div class="dropdown C2B C4T" style="position: relative; display: inline-block; font-size: 2.5vw; text-align:center;" onmouseover="showDrpDwn()" onmouseout="hideDrpDwn(); resetCols()">
+            &nbsp; Sort Method ↓
+            <div id="dropdown-content" class="C2B" style="display: none; position: absolute;">
+              
+              <button class="srtMthd C2B C4T" onClick="sortName(); hideDrpDwn(); onClick(this)" style="border:none;  font-size:2.0vw; width:100%; padding-top:1%; padding-bottom:1%;" onmouseover="onHover(this)">Project Name</button>
+              <button class="srtMthd C2B C4T" onClick="sortTime(); hideDrpDwn(); onClick(this)" style="border:none;  font-size:2.0vw; width:100%; padding-top:1%; padding-bottom:1%;" onmouseover="onHover(this)">Time Created</button>
+              <button class="srtMthd C2B C4T" onClick="sortStatus(); hideDrpDwn(); onClick(this)" style="border:none;  font-size:2.0vw; width:100%; padding-top:1%; padding-bottom:1%;" onmouseover="onHover(this)">Project Status</button>
+            </div>
+          </div>
+          
+
+          
+        </td>
+        <td style="align-content: right;">
+          <div class='C2B C4T' style="font-size:2.5vw; text-align:center" onclick="flipSort()">
+            ⇅
+          </div>
+        </td>
+      </tr>
+          </table>
+    </td>
+      </tr>
+    </table>
+    <div id="temConsole"></div>
+
+    <!--   I dont know how, I dont want to know how, but somehow this works   -->
+    <table style="width:100%; display:table; table-layout: fixed; word-wrap: break-word;" class="C1B">
+      <th style="width: 50%; font-size:2.0vw;" class="C2T">Name</th>
+      <th style="width: 30%; font-size:2.0vw;" class="C2T">Date</th>
+      <th style="width: 20%; font-size:2.0vw;" class="C2T">Status</th>
+      
+    <tr id="div1"style="display:table-row;" class="C1Border"></tr>
+    <tr id="div2"style="display:table-row"></tr>
+    <tr id="div3"style="display:table-row"></tr>
+    <tr id="div4"style="display:table-row"></tr>
+    <tr id="div5"style="display:table-row"></tr>
+    </table>
+   <!-- Dont touch the bits between comments -->
+   <!-- I dont know how it works, and if it breaks, I sure as hell cant fix it -->
+    <table style="width:100%; display:table; table-layout: fixed; word-wrap: break-word;" class="C1B">
+      <th style="width: 50%; font-size:2.0vw;" class="C3B C1T" onclick="setPage(getPage()-1)"> Page Left ❮</th>
+      <th style="width: 50%; font-size:2.0vw;" class="C3B C1T" onclick="setPage(getPage()+1)">❯ Page Right </th>
+    </table>
+
+    
+<!--     <table style="table-layout: fixed; width:100%;">
+      <th style="width: 50%;"></th>
+      <tr>
+      <td>
+        <div>
+        <div style="text-align: right;" onclick="setPage(getPage()-1)" class="C3B C1T">click me❮</div>
+        </div>
+      </td>
+      <td>
+        <div onclick="setPage(getPage()+1)" class="C3B C1T">click me❯</div>
+      </td>
+      </tr>
+    </table> -->
+    
+    
+    
+ 
+    <script src="Projects/projectsSearcher.js"></script>
+    <script src="../Java/CreateHeader.js"></script> <script src="../Java/Style.js"></script>
+    <script>
+      function showDrpDwn(){
+        document.getElementById("dropdown-content").style.display="block"
+      }
+      function hideDrpDwn(){
+        document.getElementById("dropdown-content").style.display="none"
+      }
+      var sortButtons=document.getElementById("dropdown-content").children
+      var curSort;
+      var tConsole=document.getElementById("temConsole");
+      
+      function onHover(elm){
+        for (let temp of sortButtons) {
+          if(curSort==temp){
+            setClass("C5B C4T",temp)
+          }else
+          setClass("C2B C4T",temp)
+        }
+        setClass("C4B C2T", elm)
+        
+      }
+      
+      function onClick(elm){
+        for (let temp of sortButtons) {
+          if(curSort==temp){
+            setClass("C5B C4T",temp)
+          }else
+          setClass("C2B C4T",temp)
+        }
+        setClass("C5B C4T", elm)
+        curSort=elm;
+      }
+
+      function resetCols(){
+        for (let temp of sortButtons) {
+          if(curSort==temp){
+            setClass("C5B C4T",temp)
+          }else
+          setClass("C2B C4T",temp)
+        }
+      }
+      
+      function setClass(toSet, element){
+        element.className=toSet;
+        
+      }
+
+    </script>
+=======
   <h1> 
     My Projects <br>
     Click the title of the project you want to view
@@ -22,5 +147,6 @@
       <a class="flexbox-item item-2 LG" href="../Pages/memory.html"> Memory Game</a>
       <a class="flexbox-item item-2 LG" href="../Pages/dice.html"> Dice Game</a>
     </div>
+>>>>>>> 30a1c4eb33f90e4e34f4a0bfda38885d9a0c44a7
   </body>
 </html>
