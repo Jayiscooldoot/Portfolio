@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="../Css/style.css" rel="stylesheet" type="text/css" />
+ <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+ 
+  </head>
+  <body>
+    <script src="../Java/dice.js"></script>
+    <img id="banner" src="../images/all banners/evengoodererbanner.jpg"><br>
+
+    <div class= "topnav flexboxContainer">
+      <a  class="flexbox-item item-1" href="../index.html">Home</a>
+<a class="flexbox-item item-1" href="../Pages/Facts.html"> About Me</a>
+<a class="active flexbox-item item-1" href="../Pages/Projects.html"> Projects</a>
+<a class="flexbox-item item-1" href="../Pages/DeepThoughts.html"> Deep thoughts</a>
+<a class="flexbox-item item-1" href="../Pages/Quotes.html"> Quotes</a>
+
+    </div>
+  <h1> 
+    My Projects
+    </h1>
+    <div class="flexboxContainer">
+      <p1 class="flexbox-item item-5 LG">
+        
+        </p1> </div>
+    
+        <!-- Tab links -->
+<div class="tab flexboxContainer">
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Scoreboard')">Leaderboard</button>
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Code')">Code</button>
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Review')">Review</button>
+</div>
+
+<!-- Tab content -->
+<div id="Scoreboard" class="tabcontent">
+  <div class="flexboxContainer">
+<h2 class="flexbox-item item-3"><strong>
+  Leaderboard<br>
+  <p1 class="LG">
+
+</p1>
+  </h2>
+  </strong>
+      </div>
+</div>
+
+<div id="Code" class="tabcontent">
+  <div class="flexboxContainer">
+  <div class="scroll flexbox-item item-5">
+<h2>
+  Code<br>
+  </h2>
+  <pre class="LG">
+
+</pre>
+ 
+      </div>
+  </div>
+</div>
+
+<div id="Review" class="tabcontent">
+  <div class="flexboxContainer">
+    <h2 class="flexbox-item item-3">
+      Review<br>
+      <p1 class="LG">
+        javaswipt hawd
+      </p1>
+    </h2>
+  </div>
+</div>
+
+
+
+      <script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<br>
+<br>
+<br>
+
+  </body>
+</html>

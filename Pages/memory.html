@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="../Css/style.css" rel="stylesheet" type="text/css" />
+ <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+ 
+  </head>
+  <body>
+    <script src="../Java/memory.js"></script>
+    <img id="banner" src="../images/all banners/evengoodererbanner.jpg"><br>
+
+    <div class= "topnav flexboxContainer">
+      <a  class="flexbox-item item-1" href="../index.html">Home</a>
+<a class="flexbox-item item-1" href="../Pages/Facts.html"> About Me</a>
+<a class="active flexbox-item item-1" href="../Pages/Projects.html"> Projects</a>
+<a class="flexbox-item item-1" href="../Pages/DeepThoughts.html"> Deep thoughts</a>
+<a class="flexbox-item item-1" href="../Pages/Quotes.html"> Quotes</a>
+
+    </div>
+  <h1> 
+    My Projects
+    </h1>
+    <div class="flexboxContainer">
+      <p1 class="flexbox-item item-5 LG">In this memory game colors will appear on the screen then disappear after an amount of time. They will then reappear after some more time has passed, when they coomeback one of the colors will be different from those of the previous set. Your task is to spot the one that is different and click on it. As you progress the game will get more difficult by adding more colors, and giving you less and less time to see the colors. Good Luck!</p1> </div>
+    
+        <!-- Tab links -->
+<div class="tab flexboxContainer">
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Scoreboard')">Leaderboard</button>
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Code')">Code</button>
+  <button class="tablinks flexbox-item item-1" onclick="openTab(event, 'Review')">Review</button>
+</div>
+
+<!-- Tab content -->
+<div id="Scoreboard" class="tabcontent">
+  <div class="flexboxContainer">
+<h2 class="flexbox-item item-3"><strong>
+  Leaderboard<br>
+  <p1 class="LG">
+  1. Jay Griffin: Stage 3, Level 1<br>
+  2. Ian Johnson: Stage 2 level 3<br>
+3. Owen Scott: Stage 2 level 2<br>
+
+4. Raunit: Stage 1 level 4<br>
+5. Ben: Stage 1 level 2<br>
+</p1>
+  </h2>
+  </strong>
+      </div>
+</div>
+
+<div id="Code" class="tabcontent">
+  <div class="flexboxContainer">
+  <div class="scroll flexbox-item item-5">
+<h2>
+  Code<br>
+  </h2>
+  <pre class="LG">
+  var height;
+ var width;
+var boxesC1;
+ var boxesC2;
+ var boxesC3;
+ var boxesToReplaceC1;
+ var boxesToReplaceC2;
+ var boxesToReplaceC3;
+ var boxesToReplace;
+var level;
+ var stage;
+ var boxesToCreate;
+ var timeToDisplay;
+ var timeToHide;
+ var lLength;
+ var gTWC;
+var createNew;
+ var orderIsDisplay;
+ var orderIsHide;
+ var orderIsFinalDisplay;
+ var orderIsGameOver;
+ var orderIsLevelDisplay;
+ var orderIsStart;
+
+function setup() {
+  createCanvas(925, 400);
+  height=800;
+  width=925;
+  
+  level=0;
+  stage=0;
+  boxesToCreate=4;
+  timeToDisplay=9000;
+  timeToHide=1000;
+  lLength=1000;
+  orderIsStart=true;
+  createNew=false;
+  orderIsDisplay=false;
+  orderIsHide=false;
+  orderIsFinalDisplay=false;
+  orderIsGameOver=false;
+}
+
+function draw() {
+  if(createNew){
+   createBoxes(boxesToCreate);
+  }else if(orderIsDisplay){
+   showColors(timeToDisplay+(stage*1000));
+  }else if(orderIsHide){
+    hideColors(timeToHide)
+  }else if(orderIsFinalDisplay){
+    finalDisplay()
+  }else if(orderIsLevelDisplay){
+    levelDisplay(lLength)
+  }else if(orderIsGameOver){
+    gameOver();
+  }else if(orderIsStart){
+    startScreen();
+  }
+  
+}
+
+function startScreen(){
+
+       fill(140,167,47)
+     textSize(50);
+       text("Clck to start!", width/3+10, height/2-50)
+       if(mouseIsPressed){
+         orderIsStart=false;
+         createNew=true;
+       }
+}
+function createBoxes(numBoxes){
+
+  boxesC1= new Array(numBoxes);
+  boxesC2= new Array(numBoxes);
+  boxesC3= new Array(numBoxes);
+  for(var x=0; x&ltboxesC1.length; x++){
+     boxesC1[x]=round(random(0, 255));
+    boxesC2[x]=round(random(0, 255));
+    boxesC3[x]=round(random(0, 255));
+  }
+  boxesToReplaceC1=round(random(0, 255));
+  boxesToReplaceC2=round(random(0, 255));
+  boxesToReplaceC3=round(random(0, 255));
+  boxesToReplace=round(random(-0.5, numBoxes-0.5))
+if(!(boxesToReplaceC1>=boxesC1[boxesToReplace]-40&&boxesToReplaceC1<=boxesC1[boxesToReplace])){
+if(!(boxesToReplaceC2>=boxesC2[boxesToReplace]-40&&boxesToReplaceC2<=boxesC2[boxesToReplace])){
+if(!(boxesToReplaceC3>=boxesC3[boxesToReplace]-40&&boxesToReplaceC3<=boxesC3[boxesToReplace])){
+  createNew=false;
+  orderIsDisplay=true;
+  timeToDisplay+=millis()
+}
+}
+}
+}
+function showColors(dispLength){
+  if(millis()&ltdispLength){
+    for(var x=0; x&ltboxesC1.length; x++){
+      fill(boxesC1[x], boxesC2[x], boxesC3[x])
+      rect(x*(width/boxesC1.length),0,(width/boxesC1.length),height)
+    }
+  }else{
+    orderIsDisplay=false;
+    orderIsHide=true;
+    timeToHide=timeToHide+millis();
+  }
+}
+function hideColors(hideLength){
+  if(millis()&lthideLength){
+    clear()
+  }else{
+    orderIsHide=false;
+    orderIsFinalDisplay=true;
+  } 
+}
+function finalDisplay(){
+    for(var x=0; x&ltboxesToReplace; x++){
+      fill(boxesC1[x], boxesC2[x], boxesC3[x])     
+      rect(x*(width/boxesC1.length),0,(width/boxesC1.length),height)
+    } fill(boxesToReplaceC1,boxesToReplaceC2,boxesToReplaceC3)
+rect(boxesToReplace*(width/boxesC1.length),0,(width/boxesC1.length),height)
+   for(var y=boxesToReplace+1; y&ltboxesC1.length; y++){
+      fill(boxesC1[y], boxesC2[y], boxesC3[y])   
+      rect(y*(width/boxesC1.length),0,(width/boxesC1.length),height)
+    }
+    var clickX;
+    var clickY;
+  if(mouseIsPressed){
+    clickX=mouseX;
+    clickY=mouseY;
+if(clickX/(width/boxesC1.length)>=boxesToReplace&&clickX/(width/boxesC1.length)&ltboxesToReplace+1){
+      orderIsFinalDisplay=false;
+      levelUp();
+    }else{
+        orderIsFinalDisplay=false;
+        gTWC=millis();
+        orderIsGameOver=true;
+    } 
+  }
+  }
+function levelUp(){
+  clear();
+  level++;
+  if(level==5){
+    stage++;
+    timeToDisplay=8000;
+    timeToHide=2000;
+    boxesToCreate+=2;
+    level=1
+  }else if(level==4){
+    timeToDisplay=2000; 
+    timeToHide=8000;
+  }else if(level==3){
+    timeToDisplay=4000; 
+    timeToHide=6000;    
+  }else if(level==2){
+    timeToDisplay=6000; 
+    timeToHide=4000;
+  }else if(level==1){
+    timeToDisplay=8000; 
+    timeToHide=2000;    
+  }
+  lLength=millis()+1000;
+    orderIsLevelDisplay=true;
+}
+function levelDisplay(length){
+   if(millis()&ltlength){
+    clear()
+     fill(140,167,47)
+     textSize(50);
+       text("Stage: "+stage+" Level: "+level, width/4-20, height/2-100)
+  }else{
+    createNew=true;
+    orderIsLevelDisplay=false;
+}
+}
+function gameOver(){
+  clear()     fill(boxesToReplaceC1,boxesToReplaceC2,boxesToReplaceC3)
+  rect(boxesToReplace*(width/boxesC1.length),0,(width/boxesC1.length),height)
+  fill(140,167,47)
+  textSize(100)
+  text('Game Over', width/4-20, height/2-20)
+  textSize(50);
+  text("Stage: "+stage+" Level: "+level, width/4-20, height/2-100)
+  if(gTWC+500&ltmillis())
+  if(mouseIsPressed){
+    setup();
+  }
+}
+</pre>
+ 
+      </div>
+  </div>
+</div>
+
+<div id="Review" class="tabcontent">
+  <div class="flexboxContainer">
+    <h2 class="flexbox-item item-3">
+      Review<br>
+      <p1 class="LG">
+        javaswipt hawd
+      </p1>
+    </h2>
+  </div>
+</div>
+
+
+
+      <script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<br>
+<br>
+<br>
+
+  </body>
+</html>
