@@ -12,7 +12,7 @@ const HeaderCellConsts=` onmouseover="changeClass('C4B', this); addClass('C2T',t
   
   headerDiv.innerHTML+=`<img width=100% src="../images/all banners/evengoodererbanner.jpg"> </img><table class="C2B C4T" width=100% style="text-align:center; font-size:2.5vw; padding:0.25%">
       <tr id="tableRow">
-      <td id="Home" `+HeaderCellConsts+`><a `+linkConsts+` href='../index.html'>Home</a></td>
+      <td id="Home" `+HeaderCellConsts+`><a `+linkConsts+` href='../Pages/home.html'>Home</a></td>
       <td id="About Me" `+HeaderCellConsts+`><a `+linkConsts+` href='../Pages/Facts.html'>About Me</a></td>
       <td id="Projects" `+HeaderCellConsts+`><a `+linkConsts+` href='../Pages/Projects.html'>Projects</a></td>
       <td id="Quotes" `+HeaderCellConsts+`><a `+linkConsts+` href='../Pages/Quotes.html'>Quotes</a></td>
