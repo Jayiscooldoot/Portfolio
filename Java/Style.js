@@ -1,9 +1,9 @@
 var colors= {
-  color1: [" penid"," rgb(140,167,47)"],
-  color2: [" penid"," rgb( 1, 65, 59)"],
-  color3: [" penid"," rgb( 15, 68, 3)"],
-  color4: [" penid"," rgb( 3,167,137)"],
-  color5: [" penid"," rgb( 2,115,104)"]
+  color1: ["rgb(000,000,000)"," rgb(140,167,047)"],
+  color2: ["rgb(000,000,000)"," rgb(001,065,059)"],
+  color3: ["rgb(000,000,000)"," rgb(015,068,003)"],
+  color4: ["rgb(000,000,000)"," rgb(003,167,137)"],
+  color5: ["rgb(000,000,000)"," rgb(002,115,104)"]
 }
 var curColorMode=1//grab from cookie made from theme page default to 0 if not found
 
@@ -15,7 +15,7 @@ function setCookie(cname, cvalue, exdays) {
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  console.log(cname + "=" + cvalue + ";" + expires + ";path=/")
+ // console.log(cname + "=" + cvalue + ";" + expires + ";path=/")
 }
 
 
@@ -38,12 +38,42 @@ function getCookie(cname) {
 
 
 function saveColors(){
-  setCookie("colors", ""+colors.color1+'NC'+colors.color2+'NC'+colors.color3+'NC'+colors.color4+'NC'+colors.color5+'CM'+curColorMode,999)
+  setCookie("colors", ""+colors.color1+'NC'+colors.color2+'NC'+colors.color3+'NC'+colors.color4+'NC'+colors.color5,999)
+  setCookie("colorMode",curColorMode,999)
 }
 
 function setColors(){
-  console.log(getCookie("colors"))
+  //console.log(getCookie("colors"))
+  var colorCook=getCookie('colors').split("NC")
+  var count=0;
+  for(var curCol of colorCook){
+    //console.log(curCol)
+    count++
+    eval('colors.color'+count+'=[]')
+    for(var cur of curCol.split(', ')){
+     // console.log(cur)
+
+      //console.log('colors.color'+count+'.push(" '+cur+'")')
+      cur=cur.replace(" ","")
+      eval('colors.color'+count+'.push(" '+cur+'")')//Weakness allows people to arbitrarily execute code, however I dont care
+      
+      //console.log(colors.color1)
+    }
+  }
 }
+function changeColorMode(cToo){
+  curColorMode=cToo
+  saveColors()
+}
+function changeCustColor(cAt, cToo){
+  //console.log('colors.color'+cAt+'[0]='+cToo)
+  eval('colors.color'+cAt+'[0]="'+cToo+'"')
+  saveColors()
+  
+}
+
+
+
 
 
 
@@ -114,4 +144,7 @@ for (let act of C5T) {
 setColors()
 saveColors()
 setColors()
+
+ changeCustColor(1,' rgb(050,100,050)')
+ //console.log(colors.color1)
 setInterval(color,1)
