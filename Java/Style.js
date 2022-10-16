@@ -5,6 +5,7 @@ var colors= {
   color4: ["rgb(000,000,000)"," rgb(003,167,137)"],
   color5: ["rgb(000,000,000)"," rgb(002,115,104)"]
 }
+//var vConsole=document.getElementById("vConsole")
 var curColorMode=1//grab from cookie made from theme page default to 0 if not found
 
 
@@ -40,22 +41,33 @@ function getCookie(cname) {
 function saveColors(){
   setCookie("colors", ""+colors.color1+'NC'+colors.color2+'NC'+colors.color3+'NC'+colors.color4+'NC'+colors.color5,999)
   setCookie("colorMode",curColorMode,999)
+  console.log('colors saved')
 }
 
 function setColors(){
   //console.log(getCookie("colors"))
   var colorCook=getCookie('colors').split("NC")
+  if(getCookie('colors')==""){
+    saveColors()
+    colorCook=getCookie('colors').split("NC")
+  }
   var count=0;
+ // vConsole.innerHTML+=getCookie("colors")+" "
+  //vConsole.innerHTML+=colorCook+"<br>"
   for(var curCol of colorCook){
     //console.log(curCol)
+   // vConsole.innerHTML+=curCol+" "
     count++
     eval('colors.color'+count+'=[]')
-    for(var cur of curCol.split(', ')){
+    for(var cur of curCol.split('),')){
+   if(!cur.includes(')')){
+     cur+=')'
+   }
      // console.log(cur)
-
+eval('colors.color'+count+'.push(" '+cur+'")')
       //console.log('colors.color'+count+'.push(" '+cur+'")')
-      cur=cur.replace(" ","")
-      eval('colors.color'+count+'.push(" '+cur+'")')//Weakness allows people to arbitrarily execute code, however I dont care
+      //cur=cur.replace(" ","")
+      //Weakness allows people to arbitrarily execute code, however I dont care
       
       //console.log(colors.color1)
     }
@@ -145,6 +157,7 @@ setColors()
 saveColors()
 setColors()
 
- changeCustColor(1,' rgb(050,100,050)')
+ //changeCustColor(1,' rgb(050,100,050)')
  //console.log(colors.color1)
+//vConsole.innerHTML+=colors.color1+" "+colors.color2+" "+colors.color3+" "+colors.color4+" "+colors.color5
 setInterval(color,1)
